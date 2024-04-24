@@ -29,7 +29,8 @@ func StatCost() gin.HandlerFunc {
 
 func main() {
 	c := gin.Default()
-
+	var w int = 22
+	fmt.Println(w)
 	c.Use(StatCost())
 
 	// 绑定JSON的示例 ({"user": "q1mi", "password": "123456"})
