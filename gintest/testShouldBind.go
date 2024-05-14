@@ -99,6 +99,5 @@ func main() {
 			"hellot": "cswd",
 		})
 	})
-
 	c.Run("localhost:8080")
 }
