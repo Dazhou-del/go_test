@@ -986,4 +986,7 @@ func main() {
 
 	// 打印结果
 	fmt.Println("test1", result)
+	fmt.Println("test1", result)
+	fmt.Println("test1", result)
+	fmt.Println("test1", result)
 }
