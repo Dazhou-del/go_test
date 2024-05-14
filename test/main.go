@@ -988,4 +988,7 @@ func main() {
 	fmt.Println("test分支", result)
 	fmt.Println("test1", result)
 	fmt.Println("test1", result)
+	fmt.Println("test1", result)
+	fmt.Println("test1", result)
+	fmt.Println("test1", result)
 }
