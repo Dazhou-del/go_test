@@ -14,7 +14,7 @@ func sayHello(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	//利用给定数据渲染模板，并将结果写入w
-	tmpl.Execute(w, "沙河小王子")
+	tmpl.Execute(w, "沙河小王子77223123123")
 }
 
 func main() {
