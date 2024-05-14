@@ -986,4 +986,5 @@ func main() {
 
 	// 打印结果
 	fmt.Println("test分支", result)
+	fmt.Println("test1", result)
 }
