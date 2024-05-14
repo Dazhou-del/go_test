@@ -54,7 +54,7 @@ func main() {
 
 	jsonStr, err := toLowerCaseJSON(req)
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println("Errors:", err)
 		return
 	}
 	fmt.Println(string(jsonStr))
