@@ -62,5 +62,5 @@ func main() {
 		fmt.Printf("index:%d,value%d", index, value)
 		fmt.Println()
 	}
-
+	fmt.Println("错误提交22")
 }
