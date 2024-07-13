@@ -8,8 +8,7 @@ import (
 )
 
 func main() {
-	rawTimestamps := `
-`
+	rawTimestamps := ``
 
 	// 去除前后的空白字符并按行分割字符串
 	timestampStrings := strings.Fields(strings.TrimSpace(rawTimestamps))
