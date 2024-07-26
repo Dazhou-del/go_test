@@ -14,6 +14,18 @@ func main() {
 
 	fmt.Println(strSlice)
 
+	var i int
+	i++
+	aa := []int{1}
+	fmt.Println(len(aa))
+	fmt.Println(i)
+
+	spuIds := make([]uint64, 0, len(intSlicse))
+
+	if len(spuIds) == 0 {
+		fmt.Println("aaaa")
+	}
+
 }
 
 func strconvINt(strSlice []string, intSlice []int64) {
