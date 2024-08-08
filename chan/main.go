@@ -14,4 +14,28 @@ func main() {
 		fmt.Println("val", val)
 	})
 	fmt.Println("end")
+
+	b()
+}
+
+func b() (cc string) {
+	//chanStr := make(chan string, 1)
+	//chanStr <- "hello"
+	go func() {
+		if a := a(); a == "a" {
+
+			return
+		}
+
+		//val := <-chanStr
+		//fmt.Println("val", val)
+	}()
+
+	fmt.Println("bcccc")
+	return
+}
+
+func a() string {
+	fmt.Println("csawqq")
+	return "a"
 }

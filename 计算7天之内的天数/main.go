@@ -6,10 +6,12 @@ import (
 )
 
 func main() {
-	start := int64(1721873951)
-	end := int64(1722518351)
+	start := int64(1720108800)
+	end := int64(1720454399)
 
-	bill := end - start
+	s := end - start
+	fmt.Println(s)
+	bill := float64((end - start) / 86400)
 	fmt.Println("bill:", bill)
 
 	startTime := time.Unix(start, 0)
