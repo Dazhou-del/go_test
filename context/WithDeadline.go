@@ -14,7 +14,6 @@ func main() {
 	// cancelation function in any case. Failure to do so may keep the
 	// context and its parent alive longer than necessary.
 	defer cancel()
-
 	select {
 	case <-time.After(2 * time.Second):
 		fmt.Println("oversleep")
