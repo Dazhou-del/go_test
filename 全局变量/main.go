@@ -7,9 +7,17 @@ type stu struct {
 	age  int
 }
 
+type stussss struct {
+	stus []stu
+	name string
+	age  int
+}
+
 var stuList []stu
 
 func main() {
+
+	var stussssaaa stussss
 	stus := a()
 	stus2 := a()
 	fmt.Println(stus)
@@ -19,6 +27,11 @@ func main() {
 	stuList := append(stuList, stuscc...)
 
 	fmt.Println(stuList)
+
+	var stuListaaa []stu
+	stussssaaa.stus = stuListaaa
+
+	fmt.Println(stussssaaa.stus)
 }
 
 func add(string2 string, age int) []stu {
