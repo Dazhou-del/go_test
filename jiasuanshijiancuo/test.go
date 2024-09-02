@@ -39,4 +39,14 @@ func main() {
 		fmt.Println("新在60天内")
 	}
 
+	iww := 5
+	switch iww {
+	case 1:
+		fmt.Println("1")
+	case 3:
+		fmt.Println("3")
+	default:
+		fmt.Println("4")
+	}
+
 }
