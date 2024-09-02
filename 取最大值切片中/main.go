@@ -25,4 +25,16 @@ func main() {
 	})
 
 	fmt.Println(maxRental)
+
+	var isMark bool
+
+	for i, _ := range rentals {
+		if i == 6 {
+			isMark = true
+		}
+	}
+
+	if isMark == true {
+		fmt.Println("assc")
+	}
 }
