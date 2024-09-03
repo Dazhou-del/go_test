@@ -8,7 +8,15 @@ import (
 
 func main() {
 	JsonData := "{\"switch_value\":\"2\",\"server_id\":[\"19698\",\"199\",\"15505\",\"19701\"]}"
+
 	jsonQuery := gojsonq.New().FromString(JsonData)
+	switchValue := jsonQuery.Find("switch_value")
+	jsonQuery.Reset()
+
+	if switchValue == "2" {
+		fmt.Println(switchValue)
+	}
+
 	serverIdList := jsonQuery.Find("server_id")
 	str := "19701"
 	if stringSlice, ok := serverIdList.([]interface{}); ok {
