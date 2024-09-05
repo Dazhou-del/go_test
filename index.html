@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 已知直角长边100,该边与斜边夹角20度,求直角短边
+        // Math.sin(20/180*Math.PI)*100
+        var items;
+        window.onload = ()=>{
+            init();
+        }
+
+        function init(){
+            // 获取奖项列表
+            items = document.querySelectorAll('.prize');
+            setItemStyle();
+        }
+
+        /**
+         * @description: 根据已知条件计算出clip-path的切割路径
+         * @param {*} height 矩形的高
+         * @param {*} width 矩形的宽
+         * @return {*}
+         */
+        function getPath(height, width){
+            // 得出每个奖项的角度,然后除以2得出夹角度数
+            let jiaodu = 360 / items.length / 2;
+            // 得出短直角边的长度
+            let duan = (width/2) - Math.tan(jiaodu/180*Math.PI)*height;
+            // let duan = Math.sin(jiaodu*Math.PI/180)*height;
+            // 拼接路径信息
+            let path = `M ${duan} 0 L ${width-duan} 0 L ${width/2} ${height}`;
+            return path;
+        }
+
+        /**
+         * @description: 得出奖项旋转角度
+         * @return {*}
+         */
+        function getRotate(){
+            // 获取奖项列表
+            // 得出每个奖项的旋转角度
+            return jiaodu = 360 / items.length;
+        }
+
+        /**
+         * @description: 设置样式
+         * @return {*}
+         */
+        function setItemStyle(){
+            // 获取奖项列表
+            let path = getPath(200,400);
+            let jiaodu = getRotate();
+            let jiao = 0;
+            for (const item of items) {
+                item.style.transform = 'rotate('+jiao+'deg)';
+                item.style.clipPath = "path('"+path+"')";
+                jiao += jiaodu;
+            }
+        }
+
+        // 抽奖动画
+        function raffle(){
+            // 设置中奖奖项下标,从0开始
+            let index = Math.floor(Math.random() * items.length);
+            // 至少旋转8圈
+            let circle = 8;
+            // 计算出转盘旋转多少度
+            let rotate = 360 - 360 / items.length * index;
+            // 得出一共多少度
+            let finalRotate = rotate + circle * 360;
+            // 设置目标角度
+            let wheel = document.querySelector('.wheel');
+            wheel.style.setProperty('--final-rotate',finalRotate + 'deg');
+            // 设置动画类
+            wheel.classList.add('myraffle');
+            // 动画结束后
+            wheel.onanimationend  = function(){
+                // 弹出中奖弹框
+                alert("恭喜您中奖:"+items[index].innerText);
+                wheel.classList.remove('myraffle');
+            }
+        }
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .wheel {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: #f39c12;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .prize {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            transform-origin: center bottom;
+        }
+
+        .prize:nth-child(1) { background-color: #3498db; }
+        .prize:nth-child(2) { background-color: #e74c3c; }
+        .prize:nth-child(3) { background-color: #2ecc71; }
+        .prize:nth-child(4) { background-color: #e67e22; }
+        .prize:nth-child(5) { background-color: #9b59b6; }
+        .prize:nth-child(6) { background-color: #f1c40f; }
+        .prize:nth-child(7) { background-color: #1abc9c; }
+        .prize:nth-child(8) { background-color: #34495e; }
+
+        .spin {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: calc( 50% - 40px );
+            top: calc( 50% - 40px );
+            border: 2px solid white;
+        }
+        .spin svg{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: calc( 50% - 15px );
+            top: -28px;
+        }
+        .spin svg polyline{
+            stroke:white;
+            stroke-width: 4px;
+            stroke-linejoin: round;
+        }
+        .spin svg polygon{
+            fill:#e74c3c;
+        }
+
+        .myraffle{
+            animation: raffle 5s cubic-bezier(0.76, 0.01, 0.21, 0.99);
+        }
+        @keyframes raffle {
+            form{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(var(--final-rotate));
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="wheel">
+        <div class="prize">鸡汤面</div>
+        <div class="prize">猪杂粉</div>
+        <div class="prize">猪脚饭</div>
+        <div class="prize">霸王该骂饭</div>
+        <div class="prize">Prize 5</div>
+        <div class="prize">Prize 1</div>
+        <div class="prize">Prize 1</div>
+        <div class="prize">Prize 1</div>
+        <div class="prize">Prize 1</div>
+        <!-- <div class="prize">Prize 6</div> -->
+        <!-- <div class="prize">Prize 7</div>
+        <div class="prize">Prize 8</div> -->
+    </div>
+    <button class="spin" onClick="raffle()">
+        SPIN
+        <svg>
+            <polyline points="2 30, 15 4, 28 30"/>
+            <polygon points="2 30, 15 4, 28 30" />
+        </svg>
+    </button>
+</div>
+</body>
+</html>
