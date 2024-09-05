@@ -1,5 +1,7 @@
 package wire
 
+import "fmt"
+
 type ShopCat struct {
 	productList *ProductList
 }
@@ -27,4 +29,8 @@ func initShopCat() (cat *ShopCat, err error) {
 	}
 
 	return shopCat, nil
+}
+
+func callShopCat(cat *ShopCat) {
+	fmt.Println("call shopcat")
 }
