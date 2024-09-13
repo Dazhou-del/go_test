@@ -4,7 +4,7 @@ import "fmt"
 
 var j string
 
-func init() {
+func Init() {
 	j = "hello"
 }
 
