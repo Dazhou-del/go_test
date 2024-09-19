@@ -1,13 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode/utf8"
+)
 
 func main() {
-	var a int64
-	var b int64
+	var c string
 
-	a = int64(22)
-	b = int64(33)
+	c = "测试s"
+	fmt.Println(len(c))
+	fmt.Println(utf8.RuneCountInString(c))
 
-	fmt.Println(a - b)
 }
