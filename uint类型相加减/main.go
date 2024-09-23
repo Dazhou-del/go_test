@@ -12,4 +12,9 @@ func main() {
 	fmt.Println(len(c))
 	fmt.Println(utf8.RuneCountInString(c))
 
+	www := []uint64{1, 3, 4, 56, 7}
+	for i, v := range www {
+		fmt.Println("i:", i)
+		fmt.Println("v:", v)
+	}
 }
