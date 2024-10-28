@@ -22,6 +22,29 @@ func main() {
 		return item, map[int]string{0: "租满6个月后可随租随还" + strconv.Itoa(i-1)}
 	})
 
+	valueMap["测试4"] = map[int]string{1: "租满6个月后可随租随还"}
+	fmt.Println("valueMap", valueMap)
+
+	for _, innerMap := range valueMap {
+		for i2 := range innerMap {
+			if i2 == 1 {
+				innerMap[i2] = "测试过程"
+			}
+		}
+	}
+
+	fmt.Println("修改后的", valueMap)
+
+	valueMap["测试4"] = map[int]string{1: "租满6个月后可随租随还"}
+
+	var number int
+	number++
+	if valueMap["测试4"][1] != "" {
+		valueMap["测试4"] = map[int]string{1: "租满6个月后可随租随还" + strconv.Itoa(number-1)}
+	}
+
+	fmt.Println("valueMap2", valueMap)
+
 	if aw, ok := valueMap["测试2"]; ok {
 		if valueMap["测试2"][0] != "" {
 			valueMap["测试2"] = map[int]string{1: valueMap["测试2"][0]}

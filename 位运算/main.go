@@ -50,4 +50,12 @@ func main() {
 		ProductInfoSignDetail,
 	)
 	fmt.Println(css)
+	spuSign := 9
+	c := 1
+	spuSign |= c
+	fmt.Println(spuSign)
+
+	spuSign &^= c
+
+	fmt.Println(spuSign)
 }
